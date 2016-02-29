@@ -1,35 +1,26 @@
 {
   "development": {
-<<<<<<< HEAD
     "username": "mogrysko",
-=======
     "username": "postgres",
->>>>>>> upstream/master
     "password": null,
     "database": "fswd_lab_5_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-<<<<<<< HEAD
     "username": "mogrysko",
-=======
     "username": "postgres",
->>>>>>> upstream/master
     "password": null,
     "database": "fswd_lab_5_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-<<<<<<< HEAD
     "username": "mogrysko",
     "password": null,
     "database": "fswd_lab_5_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
-=======
-    "use_env_variable": "DATABASE_URL"
->>>>>>> upstream/master
+    
   }
 }
