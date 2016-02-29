@@ -1,11 +1,12 @@
+doctype html
 html
   head
     include ./includes/bootstrap.jade
-    script(src="todo.js")
+    script(src="/browser-bundle.js")
     block title
       title Hello world!
 
-  body
+  body(ng-app="myApp")
     .container
       .well
         block body

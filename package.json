@@ -1,17 +1,19 @@
 {
   "name": "fswd-winter-2016-lab-5",
   "version": "1.0.0",
-  "description": "Lab 5: All Your (Data)Base Are Belong To Us",
+  "description": "Lab 6: Are you suggesting that coconuts migrate?",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./lib/server.js",
-    "dev_db_create": "createdb fswd_lab_5_development"
+    "dev_db_create": "createdb fswd_lab_5_development",
+    "postinstall": "sequelize db:migrate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.0",
     "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "jade": "^1.11.0",
