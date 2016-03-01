@@ -16,11 +16,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "mogrysko",
-    "password": null,
-    "database": "fswd_lab_5_production",
-    "host": "127.0.0.1",
+    "username": "foordqkezmhlfl",
+    "password": "tajiLir3fAwnsWU0CwMol9c3XT",
+    "database": "dao3df1rplgioc",
+    "host": "ec2-54-83-0-187.compute-1.amazonaws.com",
     "dialect": "postgres"
-    
   }
 }
