@@ -2,20 +2,29 @@ var angular = require('./lib/angular');
 
 var myApp = angular.module('myApp', []);
 
-// myApp.directive('valueMatches', ['$parse', function($parse) {
-//   return {
-//       require: 'ngModel',
-//       link: function (scope, elm, attrs, ngModel) {
-//           var originalModel = $parse(attrs.valueMatches),
-//                   secondModel = $parse(attrs.ngModel);
-//           // Watch for changes to this input
-//           scope.$watch(attrs.ngModel, function (newValue) {
-//               ngModel.$setValidity(attrs.name, newValue === originalModel(scope));
-//           });
-//           // Watch for changes to the value-matches model's value
-//           scope.$watch(attrs.valueMatches, function (newValue) {
-//               ngModel.$setValidity(attrs.name, newValue === secondModel(scope));
-//           });
-//       }
-//   };
-// }]);
+myApp.directive('todoList', function() {
+    return {
+      restrict: 'E',
+      controller: 'todoController',
+      controllerAs: 'vm',
+      templateUrl: '/templates/todoList.html'
+    };
+})
+
+myApp.controller('todoController', function($scope, todoService) {
+  var vm = this;
+
+  vm.todoList = todoService.getTodoList();
+});
+
+myApp.service('todoService', function() {
+  var todoList = ['Laundry'];
+
+  function getTodoList() {
+    return todoList;
+  }
+
+  return {
+    getTodoList: getTodoList
+  };
+});
