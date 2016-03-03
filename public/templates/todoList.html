@@ -5,3 +5,8 @@
     {{ todo }}
   </li>
 </ul>
+
+<div class="form-group">
+  <input type="text" name="newTodo" ng-model="vm.newTodo" />
+  <button class="btn btn-default" ng-click="vm.addTodo(vm.newTodo)">Add!</button>
+</div>

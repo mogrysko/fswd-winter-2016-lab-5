@@ -5,6 +5,7 @@ var myApp = angular.module('myApp', []);
 myApp.directive('todoList', function() {
     return {
       restrict: 'E',
+      scope: {},
       controller: 'todoController',
       controllerAs: 'vm',
       templateUrl: '/templates/todoList.html'
@@ -15,6 +16,11 @@ myApp.controller('todoController', function($scope, todoService) {
   var vm = this;
 
   vm.todoList = todoService.getTodoList();
+
+  vm.addTodo = function addTodo(newVal) {
+    todoService.addTodo(newVal);
+  };
+
 });
 
 myApp.service('todoService', function() {
@@ -24,7 +30,12 @@ myApp.service('todoService', function() {
     return todoList;
   }
 
+  function addTodo(newItem) {
+    todoList.push(newItem);
+  }
+
   return {
-    getTodoList: getTodoList
+    getTodoList: getTodoList,
+    addTodo: addTodo
   };
 });
