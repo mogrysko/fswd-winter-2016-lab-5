@@ -33,7 +33,7 @@ myApp.service('todoService', function($http) {
   }
 
   function addTodo(newItem) {
-    todoList.push(newItem);
+    return $http.post('/todo/new', { todo: newItem });
   }
 
   return {
