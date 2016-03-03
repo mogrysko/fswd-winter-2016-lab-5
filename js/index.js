@@ -12,17 +12,24 @@ myApp.directive('todoList', function() {
     };
 })
 
-myApp.controller('todoController', function($scope, todoService) {
+myApp.controller('todoController', function($scope, $interval, todoService) {
   var vm = this;
 
-  todoService.getTodoList().then(function(response) {
-    vm.todoList = response.data;
+  $scope.$watch(function() { return vm.todoList; }, function(list) {
+    vm.todoLength = list ? list.length : 0;
   });
 
   vm.addTodo = function addTodo(newVal) {
-    todoService.addTodo(newVal);
+    todoService.addTodo(newVal).then(function(response) {
+      vm.todoList = response.data;
+    });
   };
 
+  $interval(function() {
+    todoService.getTodoList().then(function(response) {
+      vm.todoList = response.data;
+    });
+  }, 5000)
 });
 
 myApp.service('todoService', function($http) {
