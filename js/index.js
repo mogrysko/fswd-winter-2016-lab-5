@@ -15,7 +15,9 @@ myApp.directive('todoList', function() {
 myApp.controller('todoController', function($scope, todoService) {
   var vm = this;
 
-  vm.todoList = todoService.getTodoList();
+  todoService.getTodoList().then(function(response) {
+    vm.todoList = response.data;
+  });
 
   vm.addTodo = function addTodo(newVal) {
     todoService.addTodo(newVal);
@@ -23,11 +25,11 @@ myApp.controller('todoController', function($scope, todoService) {
 
 });
 
-myApp.service('todoService', function() {
+myApp.service('todoService', function($http) {
   var todoList = ['Laundry'];
 
   function getTodoList() {
-    return todoList;
+    return $http.get('/todo');
   }
 
   function addTodo(newItem) {

@@ -1,8 +1,12 @@
 <p>This is my todo list!!</p>
 
+<div class="form-group">
+  <input type="text" name="filter" ng-model="vm.filterTodo" />
+</div>
+
 <ul>
-  <li ng-repeat="todo in vm.todoList">
-    {{ todo }}
+  <li ng-repeat="todo in vm.todoList | filter:vm.filterTodo track by $index">
+    {{ todo.title }}: {{ todo.createdAt | date }}
   </li>
 </ul>
 
