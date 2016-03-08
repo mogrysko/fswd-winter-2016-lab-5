@@ -2,7 +2,8 @@
   "name": "fswd-winter-2016-lab-5",
   "version": "1.0.0",
   "description": "Lab 6: Are you suggesting that coconuts migrate?",
-  "main": "index.js",
+  "repository": "betamore/fswd-winter-2016-lab-5",
+  "main": "lib/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/webpack --progress --watch & node ./lib/server.js",
@@ -15,7 +16,10 @@
   "dependencies": {
     "angular": "^1.5.0",
     "body-parser": "^1.15.0",
+    "connect-redis": "^3.0.2",
+    "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
     "jade": "^1.11.0",
     "pg": "^4.4.6",
     "sequelize": "^3.19.3",
@@ -24,6 +28,10 @@
   },
   "devDependencies": {
     "express-debug": "^1.1.1",
-    "mocha": "^2.4.5"
+    "gulp": "^3.9.1",
+    "gulp-live-server": "0.0.29",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5",
+    "morgan": "^1.7.0"
   }
 }
