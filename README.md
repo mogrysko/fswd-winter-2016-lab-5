@@ -1,13 +1,29 @@
 
-# Full Stack Web Development - Lab 6: Are you suggesting that coconuts migrate?
+# Full Stack Web Development - Lab 8: Users!
 
-Take a look at the `fswd-lab-6` branch of this
-repository. Specfically, look at the new model (`User`) and the
-migrations that have been added (in `migrations/`).
+* Update the express function that handles the POST of the
+  registration form to:
+  * Create a new [`User`](./models/user.js) record for the new user.
+  * Add the id of the newly created user record to the session in the
+    `user_id` property.
+* Add a new or update the existing `app.use` function to load the user
+  record for the session, based on the `user_id` property.
+  * Add that user record to `request` object as the `user` property.
 
-From your project directory, run `./node_modules/.bin/sequelize db:migrate`.
+## Some conditions to consider
 
-Take a look at how your local database has changed.
+* What is the proper behavior for the registration page if the user:
+  * Already exists
+  * Is already logged in
 
-Now we're going to build a user registration page.
+## Extra credit?
+
+* Login page! Lookup the user by username:
+
+        User.findOne({ where: { username: 'someUserName' } })
+          .then(function(user) { /* ... */ })
+
+* Logout page! To remove the existing session (new id/cookie):
+  
+        request.session.destroy(function(error) { /* ... */ })
 
