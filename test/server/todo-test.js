@@ -73,5 +73,13 @@ describe('todo', function() {
             ], done);
       });
     });
-  })
+
+    describe('browsers', function() {
+      it('should display the todo', function(done) {
+        request(app)
+          .get('/todo/' + createdTask.id)
+          .expect(200, /Fancy new todo/, done);
+      });
+    });
+  });
 });
