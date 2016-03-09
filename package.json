@@ -5,7 +5,7 @@
   "repository": "betamore/fswd-winter-2016-lab-5",
   "main": "lib/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "./node_modules/.bin/webpack --progress --watch & node ./lib/server.js",
     "dev_db_create": "createdb fswd_lab_5_development",
     "postinstall": "sequelize db:migrate"
@@ -32,6 +32,7 @@
     "gulp-live-server": "0.0.29",
     "gulp-util": "^3.0.7",
     "mocha": "^2.4.5",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "supertest": "^1.2.0"
   }
 }
