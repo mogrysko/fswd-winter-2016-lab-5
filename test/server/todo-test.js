@@ -72,6 +72,17 @@ describe('todo', function() {
               }
             ], done);
       });
+
+      it('should return the information for the single todo', function(done) {
+        request(app)
+          .get('/todo/' + createdTask.id)
+          .set('Accept', 'application/json')
+          .expect(200, {
+            id: createdTask.id, title: 'Fancy new todo', completedAt: null,
+            createdAt: createdTask.createdAt.toISOString(),
+            updatedAt: createdTask.updatedAt.toISOString()
+          }, done);
+      });
     });
 
     describe('browsers', function() {
