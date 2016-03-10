@@ -1,0 +1,19 @@
+extends ./layout.jade
+
+block body
+  h1 Register!
+  
+  form(novalidate method="POST" action="/users/new" name="registrationForm")
+    .form-group
+      label(for="username") Username
+      input.form-control(type="text" required name="username" ng-model="username")
+    .form-group
+      label(for="email") Email
+      input.form-control(type="email" required name="email" ng-model="email")
+    .form-group(ng-class="{ 'has-error': (registrationForm.password.$dirty || registrationForm.password_confirm.$dirty) && (registrationForm.password.$modelValue !== registrationForm.password_confirm.$modelValue) }")
+      p {{ registrationForm.password }}
+      label(for="password") Password
+      input.form-control(type="password" required name="password" ng-model="password")
+      label(for="password_confirm") Confirm Password
+      input.form-control(type="password" required name="password_confirm" ng-model="password_confirm")
+    button.btn.btn-default(type="submit") Register
